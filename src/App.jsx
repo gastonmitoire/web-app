@@ -4,9 +4,9 @@ import { LoginWrapper } from "./features/login/LoginWrapper";
 import { ShopWrapper } from "./features/shop/ShopWrapper";
 
 function App() {
-  const user = localStorage.getItem("user");
+  const accessToken = localStorage.getItem("accessToken");
 
-  if (!user) {
+  if (!accessToken) {
     return <LoginWrapper />;
   }
   return (
