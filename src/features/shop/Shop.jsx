@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Shop.css";
 
 // eslint-disable-next-line
-export const Shop = ({ products }) => {
+export const Shop = ({ products, handleConfirmCart }) => {
   const [showCart, setShowCart] = useState(false);
   const [cart, setCart] = useState([]);
 
@@ -26,10 +26,17 @@ export const Shop = ({ products }) => {
     }
   };
 
+  const handleConfirm = () => {
+    handleConfirmCart(cart);
+    setShowCart(false);
+    setCart([]);
+  };
+
   return (
     <>
       <div className="shop">
         <button
+          disabled={cart.length < 1}
           type="button"
           className="cart-toggle"
           onClick={() => {
@@ -118,7 +125,9 @@ export const Shop = ({ products }) => {
                   .toFixed(2)}
               </p>
             </div>
-            <button className="confirm">Confirmar compra</button>
+            <button className="confirm" onClick={handleConfirm}>
+              Confirmar compra
+            </button>
           </>
         )}
       </div>
