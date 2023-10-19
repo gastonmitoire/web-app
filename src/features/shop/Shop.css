@@ -1,8 +1,21 @@
 .shop {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 1rem;
-  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  & button.cart-toggle {
+    background-color: darkslateblue;
+    color: #f9f9f9;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 
   & ul {
     list-style: none;
@@ -56,11 +69,32 @@
     }
   }
 
-  & div {
+  & div.cart {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     background-color: darkslateblue;
+
+    & p.cart-total {
+      width: 100%;
+      color: #f9f9f9;
+      font-size: 1.5rem;
+      margin: 0;
+      padding: 0.5rem;
+      text-align: right;
+      background-color: slateblue;
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  & button.confirm {
+    background-color: darkslateblue;
+    color: #f9f9f9;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1rem;
   }
 }
