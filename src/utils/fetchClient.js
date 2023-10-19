@@ -23,7 +23,7 @@ export const fetchClient = async (endpoint, { body, ...customConfig } = {}) => {
       if (response.ok) {
         return data;
       } else {
-        return Promise.reject(data);
+        return Error(data);
       }
     });
 };
