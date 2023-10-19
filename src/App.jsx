@@ -6,13 +6,38 @@ import { ShopWrapper } from "./features/shop/ShopWrapper";
 function App() {
   const accessToken = localStorage.getItem("accessToken");
 
-  if (!accessToken) {
-    return <LoginWrapper />;
-  }
+  const LogoutButton = () => {
+    const handleLogout = () => {
+      localStorage.removeItem("accessToken");
+      window.location.reload();
+    };
+    return (
+      <button type="button" className="logout" onClick={handleLogout}>
+        Cerrar sesión
+      </button>
+    );
+  };
+
+  const renderApp = () => {
+    if (!accessToken) {
+      return <LoginWrapper />;
+    }
+    return (
+      <>
+        <ShopWrapper />
+      </>
+    );
+  };
+
   return (
-    <>
-      <ShopWrapper />
-    </>
+    <div>
+      {accessToken && (
+        <header>
+          <LogoutButton />
+        </header>
+      )}
+      {renderApp()}
+    </div>
   );
 }
 

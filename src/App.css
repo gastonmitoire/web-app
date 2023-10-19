@@ -3,3 +3,22 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  & button.logout {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
+    margin-left: 1rem;
+
+    &:hover {
+      color: #f9f9f9;
+    }
+  }
+}
