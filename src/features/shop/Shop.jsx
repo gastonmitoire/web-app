@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Shop.css";
 
 // eslint-disable-next-line
@@ -31,6 +31,12 @@ export const Shop = ({ products, handleConfirmCart }) => {
     setShowCart(false);
     setCart([]);
   };
+
+  useEffect(() => {
+    if (cart.length < 1) {
+      setShowCart(false);
+    }
+  }, [cart]);
 
   return (
     <>
