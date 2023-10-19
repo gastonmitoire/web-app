@@ -49,7 +49,7 @@ export const Shop = ({ products, handleConfirmCart }) => {
             setShowCart(!showCart);
           }}
         >
-          Ver carrito ({cart.length})
+          Ver {showCart ? "productos" : `carrito (${cart.length})`}
         </button>
         {!showCart && (
           <ul className="product-list">
